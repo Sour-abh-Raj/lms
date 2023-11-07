@@ -1,0 +1,12 @@
+----setup backend----
+
+mongo
+use admin
+db.createUser({user: "admin", pwd: "admin_password", roles: ["root"]})
+exit
+mongo -u admin -p admin_password --authenticationDatabase admin
+use lms
+db.createUser({user: "lms", pwd: "lms_password", roles: ["readWrite"]})
+
+----------------------
+mongod
